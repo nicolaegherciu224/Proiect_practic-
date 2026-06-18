@@ -1,0 +1,71 @@
+<Page x:Class="EngineeringManagementApp.Views.Pages.StatisticiPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:lvc="clr-namespace:LiveChartsCore.SkiaSharpView.WPF;assembly=LiveChartsCore.SkiaSharpView.WPF"
+      Background="{DynamicResource BackgroundBrush}"
+      FontFamily="{StaticResource AppFont}"
+      Loaded="Page_Loaded">
+
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <Grid Margin="24">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <StackPanel Grid.Row="0" Margin="0,0,0,20">
+                <TextBlock Text="Statistici" Style="{StaticResource PageTitleStyle}" />
+                <TextBlock Text="Imagine de ansamblu pentru manageri — echipamente, venituri și performanță ingineri"
+                           Style="{StaticResource PageSubtitleStyle}"
+                           Margin="0,6,0,0" />
+            </StackPanel>
+
+            <Grid Grid.Row="1" Margin="0,0,0,20">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Border Grid.Column="0"
+                        Margin="0,0,10,0"
+                        Padding="16"
+                        Background="{DynamicResource SurfaceBrush}"
+                        BorderBrush="{DynamicResource BorderBrush}"
+                        BorderThickness="1"
+                        CornerRadius="8">
+                    <StackPanel>
+                        <TextBlock Text="Distribuție echipamente deservite" FontWeight="SemiBold" Margin="0,0,0,12" />
+                        <lvc:PieChart x:Name="GraficEchipamente" Height="280" />
+                    </StackPanel>
+                </Border>
+
+                <Border Grid.Column="1"
+                        Margin="10,0,0,0"
+                        Padding="16"
+                        Background="{DynamicResource SurfaceBrush}"
+                        BorderBrush="{DynamicResource BorderBrush}"
+                        BorderThickness="1"
+                        CornerRadius="8">
+                    <StackPanel>
+                        <TextBlock Text="Venituri lunare (solicitări finalizate)" FontWeight="SemiBold" Margin="0,0,0,12" />
+                        <lvc:CartesianChart x:Name="GraficVenituri" Height="280" />
+                    </StackPanel>
+                </Border>
+            </Grid>
+
+            <Border Grid.Row="2"
+                    Padding="16"
+                    Background="{DynamicResource SurfaceBrush}"
+                    BorderBrush="{DynamicResource BorderBrush}"
+                    BorderThickness="1"
+                    CornerRadius="8">
+                <StackPanel>
+                    <TextBlock Text="Top ingineri după echipamente reparate" FontWeight="SemiBold" Margin="0,0,0,12" />
+                    <lvc:CartesianChart x:Name="GraficIngineri" Height="300" />
+                </StackPanel>
+            </Border>
+        </Grid>
+    </ScrollViewer>
+</Page>

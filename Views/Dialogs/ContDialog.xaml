@@ -1,0 +1,52 @@
+<Window x:Class="EngineeringManagementApp.Views.Dialogs.ContDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Cont utilizator"
+        Height="420"
+        Width="440"
+        MinHeight="380"
+        MinWidth="400"
+        WindowStartupLocation="CenterOwner"
+        ResizeMode="CanResizeWithGrip"
+        Background="{DynamicResource BackgroundBrush}"
+        FontFamily="{StaticResource AppFont}">
+
+    <Grid Margin="24">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <ScrollViewer Grid.Row="0" VerticalScrollBarVisibility="Auto">
+            <StackPanel>
+                <TextBlock x:Name="TitluText" Text="Adaugă cont" Style="{StaticResource PageTitleStyle}" Margin="0,0,0,20" />
+
+                <TextBlock Text="Login" Style="{StaticResource FieldLabelStyle}" />
+                <TextBox x:Name="LoginBox" Style="{StaticResource TextBoxStyle}" Margin="0,0,0,12" />
+
+                <TextBlock x:Name="ParolaLabel" Text="Parolă" Style="{StaticResource FieldLabelStyle}" />
+                <PasswordBox x:Name="ParolaBox" Style="{StaticResource PasswordBoxStyle}" Margin="0,0,0,12" />
+
+                <TextBlock Text="Tip drepturi" Style="{StaticResource FieldLabelStyle}" />
+                <ComboBox x:Name="RolCombo" Margin="0,0,0,12" Padding="8,6" />
+
+                <TextBlock x:Name="EroareText"
+                           Foreground="{DynamicResource ErrorBrush}"
+                           TextWrapping="Wrap"
+                           Margin="0,0,0,8"
+                           Visibility="Collapsed" />
+            </StackPanel>
+        </ScrollViewer>
+
+        <Border Grid.Row="1"
+                BorderBrush="{DynamicResource BorderBrush}"
+                BorderThickness="0,1,0,0"
+                Padding="0,16,0,0"
+                Margin="0,12,0,0">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <Button Content="Anulează" Style="{StaticResource SecondaryButtonStyle}" Margin="0,0,10,0" Click="Anuleaza_Click" />
+                <Button Content="Salvează" Style="{StaticResource PrimaryButtonStyle}" Click="Salveaza_Click" />
+            </StackPanel>
+        </Border>
+    </Grid>
+</Window>

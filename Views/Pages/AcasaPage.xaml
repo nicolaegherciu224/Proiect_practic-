@@ -1,0 +1,35 @@
+<Page x:Class="EngineeringManagementApp.Views.Pages.AcasaPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Background="{DynamicResource BackgroundBrush}"
+      FontFamily="{StaticResource AppFont}">
+
+    <ScrollViewer VerticalScrollBarVisibility="Auto" Padding="24">
+        <StackPanel MaxWidth="900">
+            <TextBlock Text="Bun venit"
+                       Style="{StaticResource PageTitleStyle}" />
+            <TextBlock Text="Selectați o secțiune din meniul din stânga pentru a gestiona datele."
+                       Style="{StaticResource PageSubtitleStyle}"
+                       Margin="0,8,0,24" />
+
+            <Border Background="{DynamicResource SurfaceBrush}"
+                    BorderBrush="{DynamicResource BorderBrush}"
+                    BorderThickness="1"
+                    CornerRadius="10"
+                    Padding="24">
+                <StackPanel>
+                    <TextBlock Text="Informații sesiune"
+                               FontSize="16"
+                               FontWeight="SemiBold"
+                               Foreground="{DynamicResource TextPrimaryBrush}" />
+                    <TextBlock x:Name="InfoUtilizatorText"
+                               Style="{StaticResource PageSubtitleStyle}"
+                               Margin="0,12,0,0" />
+                    <TextBlock x:Name="InfoRolText"
+                               Style="{StaticResource PageSubtitleStyle}"
+                               Margin="0,6,0,0" />
+                </StackPanel>
+            </Border>
+        </StackPanel>
+    </ScrollViewer>
+</Page>

@@ -1,0 +1,65 @@
+<Page x:Class="EngineeringManagementApp.Views.Pages.SolicitariPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Background="{DynamicResource BackgroundBrush}"
+      FontFamily="{StaticResource AppFont}"
+      Loaded="Page_Loaded">
+
+    <Grid Margin="24">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="Solicitări"
+                   Style="{StaticResource PageTitleStyle}" />
+        <TextBlock Grid.Row="1"
+                   Text="Gestionare solicitări"
+                   Style="{StaticResource PageSubtitleStyle}"
+                   Margin="0,6,0,16" />
+
+        <StackPanel Grid.Row="2">
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,12">
+                <Button x:Name="BtnAdauga" Content="➕ Adaugă" Style="{StaticResource PrimaryButtonStyle}" Margin="0,0,8,0" Click="Adauga_Click" />
+                <Button x:Name="BtnEditeaza" Content="✏ Editează" Style="{StaticResource SecondaryButtonStyle}" Margin="0,0,8,0" Click="Editeaza_Click" />
+                <Button x:Name="BtnSterge" Content="🗑 Șterge" Style="{StaticResource SecondaryButtonStyle}" Margin="0,0,8,0" Click="Sterge_Click" />
+                <Button Content="🔄 Reîncarcă" Style="{StaticResource SecondaryButtonStyle}" Margin="0,0,8,0" Click="Reincarca_Click" />
+                <Button x:Name="BtnExport" Content="📤 Export Excel" Style="{StaticResource SecondaryButtonStyle}" Margin="0,0,8,0" Click="Export_Click" />
+                <Button x:Name="BtnImport" Content="📥 Import Excel" Style="{StaticResource SecondaryButtonStyle}" Margin="0,0,8,0" Click="Import_Click" />
+                <Button x:Name="BtnIstoric" Content="📜 Istoric status" Style="{StaticResource SecondaryButtonStyle}" Margin="0,0,8,0" Click="Istoric_Click" />
+                <Button x:Name="BtnPdf" Content="📄 Bon PDF" Style="{StaticResource SecondaryButtonStyle}" Click="Pdf_Click" />
+            </StackPanel>
+
+            <DataGrid x:Name="GridDate"
+                      AutoGenerateColumns="False"
+                      IsReadOnly="True"
+                      SelectionMode="Single"
+                      CanUserAddRows="False"
+                      HeadersVisibility="Column"
+                      GridLinesVisibility="Horizontal"
+                      Background="{DynamicResource SurfaceBrush}"
+                      BorderBrush="{DynamicResource BorderBrush}"
+                      BorderThickness="1"
+                      RowBackground="{DynamicResource SurfaceBrush}"
+                      AlternatingRowBackground="{DynamicResource PrimaryLightBrush}"
+                      Foreground="{DynamicResource TextPrimaryBrush}"
+                      MinHeight="300">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="ID" Binding="{Binding IdSolicitare}" Width="50" />
+                    <DataGridTextColumn Header="Nume inginer" Binding="{Binding NumeInginer}" Width="110" />
+                    <DataGridTextColumn Header="Prenume" Binding="{Binding PrenumeInginer}" Width="110" />
+                    <DataGridTextColumn Header="Client" Binding="{Binding Client}" Width="130" />
+                    <DataGridTextColumn Header="Adresă" Binding="{Binding Adresa}" Width="*" MinWidth="120" />
+                    <DataGridTextColumn Header="Data" Binding="{Binding Data, StringFormat=dd.MM.yyyy}" Width="90" />
+                    <DataGridTextColumn Header="Tip echip." Binding="{Binding TipEchipament}" Width="100" />
+                    <DataGridTextColumn Header="Model" Binding="{Binding ModelEchipament}" Width="100" />
+                    <DataGridTextColumn Header="Nr. serie" Binding="{Binding NrSerie}" Width="100" />
+                    <DataGridTextColumn Header="Status" Binding="{Binding Status}" Width="90" />
+                    <DataGridTextColumn Header="Cant." Binding="{Binding CantitateEchipament}" Width="55" />
+                    <DataGridTextColumn Header="Sumă MDL" Binding="{Binding SumaAchitare, StringFormat=N2}" Width="90" />
+                </DataGrid.Columns>
+            </DataGrid>
+        </StackPanel>
+    </Grid>
+</Page>
